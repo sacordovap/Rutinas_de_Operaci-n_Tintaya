@@ -94,7 +94,7 @@ const LoginScreen = () => {
                                 <Stack space={5}>
                                     <Stack backgroundColor={"#023285"} style={styles.cajasTexto}>
                                         <FormControl.Label _text={{ color: '#669EFF', fontSize: 14 }}>USUARIO</FormControl.Label>
-                                        <Input onChangeText={value => setFormularioDatos({ ...formularioDatos, email: value })} fontSize={16} color={'white'} variant="underlined" InputLeftElement={<Icon as={<FontAwesomeIcon name="user" style={styles.iconUser} />} size={2} />} p={2} placeholder="usuarioantapaccay1" />
+                                        <Input onChangeText={value => setFormularioDatos({ ...formularioDatos, email: value })} fontSize={16} color={'white'} variant="underlined" InputLeftElement={<Icon as={<FontAwesomeIcon name="user" style={styles.iconUser} />} size={2} />} p={2} placeholder="Usuario Tintaya" />
                                     </Stack>
                                     <Stack backgroundColor={"#023285"} style={styles.cajasTexto}>
                                         <FormControl.Label _text={{ color: '#669EFF', fontSize: 14 }}>CONTRASEÑA</FormControl.Label>

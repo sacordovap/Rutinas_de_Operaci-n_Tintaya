@@ -103,7 +103,7 @@ const ItemScreen2 = ({ item, miObjetoNuevo }) => {
     const navigation = useNavigation();
 
     return (
-        <View space={1} justifyContent="space-between">
+        <View space={1} justifyContent="space-between" style={{marginLeft:15}}>
 
             <Modal
                 visible={visible}

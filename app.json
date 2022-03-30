@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icons/icono_android2.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.stv959.RutinasdeOperacionTintaya"
     },
     "web": {
       "favicon": "./assets/favicon.png"

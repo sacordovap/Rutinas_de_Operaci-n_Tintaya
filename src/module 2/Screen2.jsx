@@ -41,7 +41,7 @@ const Screen2 = (props) => {
 
       <Layout style={styles.container} level='1'>
 
-        <View style={{ justifyContent: 'center' }}>
+        <View style={{ justifyContent: 'center', marginTop: 20 }}>
           {/* <Text style={styles.tittlesStyle}>
             <Avatar
               shape={"square"}
@@ -51,10 +51,11 @@ const Screen2 = (props) => {
             />
             Número de Personas que realizan la actividad
           </Text> */}
+          
           <FlatList
             ListHeaderComponent={
               <>
-                <TemplateVersion2 />
+                <View style={{marginTop:15}}><TemplateVersion2 /></View>
                 <Text style={[styles.tittlesStyle, { textAlign: 'center' }]}>
                   {(dataScreen4.areaNombre).toUpperCase() + " > " + (dataScreen4.subProcesoNombre).toUpperCase()}
                 </Text>
@@ -90,10 +91,7 @@ const styles = StyleSheet.create({
     borderColor: 'transparent'
   },
   container: {
-    justifyContent: 'center',
-    marginRight: 10,
-    marginLeft: 10,
-    marginTop: 10,
+    justifyContent: 'center',    
     backgroundColor: 'white'
   },
   tittlesStyle: {
