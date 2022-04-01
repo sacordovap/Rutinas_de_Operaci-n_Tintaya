@@ -119,7 +119,7 @@ const Screen3 = (props) => {
 
         </>
 
-        <View style={{ justifyContent: 'center' }}>
+        <View style={{ justifyContent: 'center' , marginBottom: 30 }}>
           <View style={{ alignSelf: 'center', marginTop: "40%" }}>
             <Button style={[styles.button, {
               backgroundColor: '#01286B',

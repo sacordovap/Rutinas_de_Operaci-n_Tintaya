@@ -38,7 +38,7 @@ const LoginScreen = () => {
             Asyncstorage.setItem('token', response.data.token).then((response) => {
 
                 setVisible(false);
-                showAlert()
+                navigation.navigate('Home')
 
             })
         }, err => {
@@ -112,36 +112,13 @@ const LoginScreen = () => {
                     </Text>
                 </View>
             </View>
-            <AwesomeAlert
-                show={Estado}
-                showProgress={false}
-                title="Bienvenido"
-                titleStyle={{ fontSize: 22, marginBottom: 10 }}
-                messageStyle={{ fontSize: 18, marginBottom: 10 }}
-                message="Inicio de Sesión Exitoso"
-                closeOnTouchOutside={true}
-                closeOnHardwareBackPress={false}
-                showCancelButton={false}
-                showConfirmButton={true}
-                cancelText="No"
-                confirmText="Continuar"
-                cancelButtonStyle={{ width: 100, alignItems: 'center', marginTop: 10 }}
-                confirmButtonStyle={{ width: 100, alignItems: 'center' }}
-                confirmButtonColor="#AEDEF4"
-                cancelButtonColor="#DD6B55"
-                onConfirmPressed={() => {
-                    console.log('Ingresé')
-                    navigation.navigate('Home')
-                    hideAlert();
-                }}
-            />
-           <AnimatedLoader
+            <AnimatedLoader
                 visible={visible}
-                overlayColor="white"
+                overlayColor='rgba(2,40,108,0.9)'
                 animationStyle={styles.lottie}
                 source={loader}
                 speed={1}>
-                <Text>Iniciando Sesión</Text>
+                <Text style={{ color: '#FFFFFF' }}>Iniciando Sesión</Text>
             </AnimatedLoader>
         </ScrollView>
 
