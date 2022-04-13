@@ -41,7 +41,7 @@ const Screen2 = (props) => {
 
       <Layout style={styles.container} level='1'>
 
-        <View style={{ justifyContent: 'center', marginTop: 20 }}>
+        <View style={{ justifyContent: 'center' , marginTop: 20 }}>
           {/* <Text style={styles.tittlesStyle}>
             <Avatar
               shape={"square"}
@@ -51,7 +51,6 @@ const Screen2 = (props) => {
             />
             Número de Personas que realizan la actividad
           </Text> */}
-          
           <FlatList
             ListHeaderComponent={
               <>
@@ -91,7 +90,7 @@ const styles = StyleSheet.create({
     borderColor: 'transparent'
   },
   container: {
-    justifyContent: 'center',    
+    justifyContent: 'center',   
     backgroundColor: 'white'
   },
   tittlesStyle: {

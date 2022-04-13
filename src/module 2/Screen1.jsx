@@ -220,7 +220,7 @@ const Screen1 = (props) => {
       <StatusBar barStyle="dark-content" />
       <TemplateVersion2 />
       <Layout style={styles.container} level='1'>
-        
+
         <View>
           <Text style={styles.tittlesStyle}>
             <Avatar
@@ -231,20 +231,20 @@ const Screen1 = (props) => {
             <Text>  </Text>ÁREA
           </Text>
 
-          <ScrollView horizontal style={{alignSelf: loading?'center':'flex-start'}}>
+          <ScrollView horizontal style={{ alignSelf: loading ? 'center' : 'flex-start' }}>
 
             {loading ? (
-             
-                <ActivityIndicator
 
-                  //visibility of Overlay Loading Spinner
-                  visible={loading}
-                  //Text with the Spinner
-                  size="small"
-                  color="#f4c47c"
-                  //Text style of the Spinner Text
-                  textStyle={styles.spinnerTextStyle}
-                />
+              <ActivityIndicator
+
+                //visibility of Overlay Loading Spinner
+                visible={loading}
+                //Text with the Spinner
+                size="small"
+                color="#f4c47c"
+                //Text style of the Spinner Text
+                textStyle={styles.spinnerTextStyle}
+              />
             ) : (
               <>
                 {areasData.map((obj, i) => {
@@ -272,7 +272,11 @@ const Screen1 = (props) => {
 
                         size='giant'
                         resizeMode="contain"
-                        source={{ uri: obj.url_image }} />
+                        source={obj.url_image == null ?
+                          require('../../assets/icons/icono_android2.png')
+                          :
+                          { uri: obj.url_image }}
+                      />
 
                       <Text style={{ textAlign: 'center', maxWidth: 100, color: obj.selected ? '#01286B' : '#969696', fontSize: 14, fontWeight: "400", marginTop: 5 }}>
                         {obj.name}
@@ -370,9 +374,7 @@ const Screen1 = (props) => {
           </Text>
           <>
 
-
-
-            <View>
+            <View style={{ marginHorizontal: 10 }}>
               {
                 // console.log(tareasRutinariasPorId),
                 tareasRutinariasPorId.map((obj, indexT) => {
@@ -411,19 +413,23 @@ const Screen1 = (props) => {
                             {displayValue === 'Seleccione un SubProceso' ? null :
                               (
                                 tamano > 1 ? (
-                                  <Text style={{ marginHorizontal: 5, textAlign: 'justify', width: (width - 50) }}
-                                    key={obj.id}>Esta tarea posee: {tamano} Subtareas, presione en "+" para mayor información
-                                    <Text
-                                      // style={[{ width: 1.2 }, { height: 1.2 }]}
-                                      status='basic'
-                                      style={{ backgroundColor: 'white', color: '#ea3e18', fontWeight: 'bold', fontSize: 20 }}
-                                      onPress={() => { activarModalDataExtra(obj.detail_tasks, obj.id); }}> + </Text>
-                                  </Text>
+                                  <View style={{ width: (width - 50) }}>
+                                    <Text style={{ marginHorizontal: 5, textAlign: 'justify', width: (width - 50) }}
+                                      key={obj.id}>Esta tarea posee: {tamano} Subtareas, presione en "+" para mayor información
+                                      <Text
+                                        // style={[{ width: 1.2 }, { height: 1.2 }]}
+                                        status='basic'
+                                        style={{ backgroundColor: 'white', color: '#ea3e18', fontWeight: 'bold', fontSize: 20 }}
+                                        onPress={() => { activarModalDataExtra(obj.detail_tasks, obj.id); }}> + </Text>
+                                    </Text>
+                                  </View>
                                   // <Button onPress={() => { activarModalDataExtra(obj.detail_tasks, obj.id) }} key={obj.id} title={"Esta tarea posee: " + tamano + " Subtareas, despliegue para más información"}>
                                   //   {myHope}
                                   // </Button>
                                 ) :
-                                  <Text style={{ marginHorizontal: 5, textAlign: 'justify', width: (width - 50) }} key={obj.id}>{(indexT + 1) + ". " + todeArray[0].name}</Text>
+                                  <View style={{ width: (width - 50) }}>
+                                    <Text style={{ marginHorizontal: 5, textAlign: 'justify', width: (width - 50) }} key={obj.id}>{(indexT + 1) + ". " + todeArray[0].name}</Text>
+                                  </View>
                               )}
                           </Radio>)}
 
@@ -506,7 +512,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     // margin: 30
-    margin:10,
+    margin: 10,
     backgroundColor: '#FFFFFF'
   },
   card: {

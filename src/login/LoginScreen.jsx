@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, useWindowDimensions, ImageBackground, Dimensions, ScrollView, Image, KeyboardAvoidingView, StatusBar } from 'react-native';
 import React, { useState } from 'react';
-import { Box, Button, FormControl, Icon, Input, NativeBaseProvider, Stack, WarningOutlineIcon } from 'native-base';
+import { Box, Button, FormControl, Icon, Input, NativeBaseProvider, Stack, Toast, WarningOutlineIcon } from 'native-base';
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import { postLogin } from '../services/loginService';
 import { useAuth } from '../context/authState';
@@ -42,8 +42,11 @@ const LoginScreen = () => {
 
             })
         }, err => {
-            console.warn(err)
-            alert("Usuario no encontrado")
+            Toast.show({
+                title: "Usuario no encontrado",
+                status: "danger",
+                description: "Intente nuevamente o ingrese otros datos"
+            })
             setVisible(false);
         })
     }

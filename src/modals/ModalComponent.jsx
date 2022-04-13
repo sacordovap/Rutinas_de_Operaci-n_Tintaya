@@ -1,8 +1,9 @@
 
 import React from 'react'
 import { StyleSheet, View } from 'react-native';
-import { Button, Card, Modal, Text } from '@ui-kitten/components';
-import { ScrollView } from 'native-base';
+import { Avatar, Button, Card, Modal, Text } from '@ui-kitten/components';
+import { Icon, ScrollView } from 'native-base';
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 
 const ModalComponent = (props) => {
     //  console.log(props)
@@ -27,19 +28,34 @@ const ModalComponent = (props) => {
         <View style={styles.container}>
 
             <Modal
-            style={{ width: 300, height: 550}}
+                style={{ width: 300, height: 550 }}
                 visible={props.visible}
                 backdropStyle={styles.backdrop}
                 onBackdropPress={props.onClose}>
                 <ScrollView>
                     <Card disabled={true}>
+                        <Text style={styles.titleStyle}>
+                            <Avatar
+                                shape={"square"}
+                                size='tiny'
+                                style={{ width: 10, height: 10 }}
+                                source={require('../../assets/icons/Rectangle_orange.png')} />
+                            <Text>    </Text>
+                            SUBTAREAS</Text>
+
 
                         {
                             todeArray.map((obj, index) => {
                                 // console.log(obj)
                                 return (
+                                    <>
+                                        <Text style={{ marginVertical: 5, textAlign: 'justify' }}>
 
-                                    <Text key={index}> {props.objetoIdParaModal}.{index + 1} {obj.name}</Text>
+                                            {props.objetoIdParaModal}.{index + 1}
+                                            <Text style={{ textAlign: 'justify' }} key={index}> {obj.name}</Text>
+
+                                        </Text>
+                                    </>
                                 )
                             })
                         }
@@ -64,5 +80,11 @@ const styles = StyleSheet.create({
     backdrop: {
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
+    titleStyle: {
+        fontSize: 17,
+        color: '#01286B',
+        fontWeight: '600',
+        marginVertical: 10,
+    }
 });
 
